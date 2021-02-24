@@ -5,8 +5,9 @@ import matplotlib.pyplot as plt
 from policynetwork_with_agent import Agent
 
 if __name__ == '__main__':
-    env = gym.make('LunarLander-v2')
-    agent = Agent(lr=0.001, input_dims=[8], gamma=0.99, n_actions=4, l1_size=64, l2_size=32)
+    env = gym.make('CartPole-v0')
+    print(env.action_space)
+    agent = Agent(lr=0.001, input_dims=[env.action_space.n*2], gamma=0.99, n_actions=env.action_space.n, l1_size=64, l2_size=32)
     score_history = list()
     n_episodes = 2500
     render_at = 500
